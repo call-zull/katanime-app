@@ -1,38 +1,40 @@
 <template>
-  <main class="min-h-screen bg-slate-100 grid place-items-center p-6">
+  <main class="min-h-screen bg-slate-700 grid place-items-center p-6">
     <!-- wrapper -->
-    <section v-if="pokemons" class="w-8/12 grid grid-cols-5 gap-3">
-      <template v-for="pokemon in pokemons" :key="pokemon.url">
-        <PokemonCard class="col-span-1" :pokemon="pokemon" />
+    <section v-if="quotes" class="w-8/12 grid grid-cols-1 gap-6">
+      <template v-for="quote in quotes" :key="quote.id">
+        <QuoteCard :quote="quote" />
       </template>
     </section>
 
     <!-- loading state -->
     <p v-else>
-      loading...
+      Memuat...
     </p>
   </main>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
-import PokemonCard from './components/PokemonCard.vue';
+import { onMounted, onUpdated, ref } from 'vue';
+import QuoteCard from './components/QuoteCard.vue';
 
 // refs
-const pokemons = ref()
+const quotes = ref()
 
-onMounted(() => {
-
-  setTimeout(async () => {
-
-    const res = await fetch("https://pokeapi.co/api/v2/item")
-
-    // parse data
+onMounted(async () => {
+  try {
+    const res = await fetch("https://katanime.vercel.app/api/getrandom")
     const data = await res.json()
 
-    // updated state
-    pokemons.value = data.results
-  }, 2000)
+    if (data.sukses) {
+      quotes.value = data.result
+    }
+  } catch (error) {
+    console.error("Gagal memuat data:", error)
+  }
 })
 
+onUpdated(() => {
+  console.log('Data kutipan telah diperbarui:', quotes.value);
+});
 </script>

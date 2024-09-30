@@ -1,0 +1,22 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1727682123071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1727682141371,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+{\r\n+  \"name\": \"pokemon-app\",\r\n+  \"version\": \"0.0.0\",\r\n+  \"private\": true,\r\n+  \"type\": \"module\",\r\n+  \"scripts\": {\r\n+    \"dev\": \"vite\",\r\n+    \"build\": \"vite build\",\r\n+    \"preview\": \"vite preview\"\r\n+  },\r\n+  \"dependencies\": {\r\n+    \"autoprefixer\": \"^10.4.20\",\r\n+    \"postcss\": \"^8.4.47\",\r\n+    \"tailwindcss\": \"^3.4.13\",\r\n+    \"vue\": \"^3.4.29\"\r\n+  },\r\n+  \"devDependencies\": {\r\n+    \"@vitejs/plugin-vue\": \"^5.0.5\",\r\n+    \"vite\": \"^5.3.1\",\r\n+    \"vite-plugin-vue-devtools\": \"^7.3.1\"\r\n+  }\r\n+}\r\n"
+                }
+            ],
+            "date": 1727682123071,
+            "name": "Commit-0",
+            "content": "{\r\n  \"name\": \"pokemon-app\",\r\n  \"version\": \"0.0.0\",\r\n  \"private\": true,\r\n  \"type\": \"module\",\r\n  \"scripts\": {\r\n    \"dev\": \"vite\",\r\n    \"build\": \"vite build\",\r\n    \"preview\": \"vite preview\"\r\n  },\r\n  \"dependencies\": {\r\n    \"autoprefixer\": \"^10.4.20\",\r\n    \"postcss\": \"^8.4.47\",\r\n    \"tailwindcss\": \"^3.4.13\",\r\n    \"vue\": \"^3.4.29\"\r\n  },\r\n  \"devDependencies\": {\r\n    \"@vitejs/plugin-vue\": \"^5.0.5\",\r\n    \"vite\": \"^5.3.1\"\r\n  }\r\n}\r\n"
+        }
+    ]
+}

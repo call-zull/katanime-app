@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src/components/QuoteCard.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1727682557874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1727682897360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-    <section class=\"bg-white p-6\">\r\n+    <section class=\"bg-black p-6\">\r\n       <blockquote class=\"text-center italic text-lg\">\r\n         \"{{ quote.indo }}\"\r\n       </blockquote>\r\n       <p class=\"text-right text-gray-500 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n"
+                },
+                {
+                    "date": 1727682907534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n     <section class=\"bg-black p-6\">\r\n-      <blockquote class=\"text-center italic text-lg\">\r\n+      <blockquote class=\"text-center text-white italic text-lg\">\r\n         \"{{ quote.indo }}\"\r\n       </blockquote>\r\n       <p class=\"text-right text-gray-500 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n     </section>\r\n"
+                },
+                {
+                    "date": 1727682921548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-    <section class=\"bg-black p-6\">\r\n+    <section class=\"bg-black/15 p-6\">\r\n       <blockquote class=\"text-center text-white italic text-lg\">\r\n         \"{{ quote.indo }}\"\r\n       </blockquote>\r\n       <p class=\"text-right text-gray-500 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n"
+                },
+                {
+                    "date": 1727682929174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-    <section class=\"bg-black/15 p-6\">\r\n+    <section class=\"bg-black/50 p-6\">\r\n       <blockquote class=\"text-center text-white italic text-lg\">\r\n         \"{{ quote.indo }}\"\r\n       </blockquote>\r\n       <p class=\"text-right text-gray-500 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n"
+                },
+                {
+                    "date": 1727682939046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n     <section class=\"bg-black/50 p-6\">\r\n       <blockquote class=\"text-center text-white italic text-lg\">\r\n         \"{{ quote.indo }}\"\r\n       </blockquote>\r\n-      <p class=\"text-right text-gray-500 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n+      <p class=\"text-right text-gray-300 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n     </section>\r\n   </template>\r\n   \r\n   <script setup>\r\n"
+                },
+                {
+                    "date": 1727682945308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n     <section class=\"bg-black/50 p-6\">\r\n       <blockquote class=\"text-center text-white italic text-lg\">\r\n         \"{{ quote.indo }}\"\r\n       </blockquote>\r\n-      <p class=\"text-right text-gray-300 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n+      <p class=\"text-right text-gray-350 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n     </section>\r\n   </template>\r\n   \r\n   <script setup>\r\n"
+                },
+                {
+                    "date": 1727682950850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n     <section class=\"bg-black/50 p-6\">\r\n       <blockquote class=\"text-center text-white italic text-lg\">\r\n         \"{{ quote.indo }}\"\r\n       </blockquote>\r\n-      <p class=\"text-right text-gray-350 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n+      <p class=\"text-right text-gray-500 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n     </section>\r\n   </template>\r\n   \r\n   <script setup>\r\n"
+                },
+                {
+                    "date": 1727682971054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-    <section class=\"bg-black/50 p-6\">\r\n+    <section class=\"bg-black/50 p-6 rounded-lg\">\r\n       <blockquote class=\"text-center text-white italic text-lg\">\r\n         \"{{ quote.indo }}\"\r\n       </blockquote>\r\n       <p class=\"text-right text-gray-500 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n"
+                },
+                {
+                    "date": 1727682977981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-    <section class=\"bg-black/50 p-6 rounded-lg\">\r\n+    <section class=\"bg-black/50 p-6 rounded-xl\">\r\n       <blockquote class=\"text-center text-white italic text-lg\">\r\n         \"{{ quote.indo }}\"\r\n       </blockquote>\r\n       <p class=\"text-right text-gray-500 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n"
+                },
+                {
+                    "date": 1727683008198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-    <section class=\"bg-black/50 p-6 rounded-xl\">\r\n+    <section class=\"bg-black/50 p-6 rounded-lg\">\r\n       <blockquote class=\"text-center text-white italic text-lg\">\r\n         \"{{ quote.indo }}\"\r\n       </blockquote>\r\n       <p class=\"text-right text-gray-500 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n"
+                }
+            ],
+            "date": 1727682557874,
+            "name": "Commit-0",
+            "content": "<template>\r\n    <section class=\"bg-white p-6\">\r\n      <blockquote class=\"text-center italic text-lg\">\r\n        \"{{ quote.indo }}\"\r\n      </blockquote>\r\n      <p class=\"text-right text-gray-500 mt-2\">- {{ quote.character }} ({{ quote.anime }})</p>\r\n    </section>\r\n  </template>\r\n  \r\n  <script setup>\r\n  const props = defineProps({\r\n    quote: Object\r\n  })\r\n  </script>\r\n  "
+        }
+    ]
+}

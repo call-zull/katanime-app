@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/App.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1727682343091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1727682569725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,38 +1,36 @@\n <template>\r\n   <main class=\"min-h-screen bg-slate-100 grid place-items-center p-6\">\r\n     <!-- wrapper -->\r\n-    <section v-if=\"pokemons\" class=\"w-8/12 grid grid-cols-5 gap-3\">\r\n-      <template v-for=\"pokemon in pokemons\" :key=\"pokemon.url\">\r\n-        <PokemonCard class=\"col-span-1\" :pokemon=\"pokemon\" />\r\n+    <section v-if=\"quotes\" class=\"w-8/12 grid grid-cols-1 gap-6\">\r\n+      <template v-for=\"quote in quotes\" :key=\"quote.id\">\r\n+        <QuoteCard :quote=\"quote\" />\r\n       </template>\r\n     </section>\r\n \r\n     <!-- loading state -->\r\n     <p v-else>\r\n-      loading...\r\n+      Memuat...\r\n     </p>\r\n   </main>\r\n </template>\r\n \r\n <script setup>\r\n import { onMounted, ref } from 'vue';\r\n-import PokemonCard from './components/PokemonCard.vue';\r\n+import QuoteCard from './components/QuoteCard.vue';\r\n \r\n // refs\r\n-const pokemons = ref()\r\n+const quotes = ref()\r\n \r\n-onMounted(() => {\r\n-\r\n-  setTimeout(async () => {\r\n-\r\n-    const res = await fetch(\"https://pokeapi.co/api/v2/item\")\r\n-\r\n-    // parse data\r\n+onMounted(async () => {\r\n+  try {\r\n\\ No newline at end of file\n+    const res = await fetch(\"https://katanime.vercel.app/api/getrandom\")\r\n     const data = await res.json()\r\n \r\n-    // updated state\r\n-    pokemons.value = data.results\r\n-  },)\r\n+    if (data.sukses) {\r\n+      quotes.value = data.result\r\n+    }\r\n+  } catch (error) {\r\n+    console.error(\"Gagal memuat data:\", error)\r\n+  }\r\n })\r\n-\r\n-</script>\n+</script>\r\n"
+                },
+                {
+                    "date": 1727682877743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-  <main class=\"min-h-screen bg-slate-100 grid place-items-center p-6\">\r\n+  <main class=\"min-h-screen bg-slate-600 grid place-items-center p-6\">\r\n     <!-- wrapper -->\r\n     <section v-if=\"quotes\" class=\"w-8/12 grid grid-cols-1 gap-6\">\r\n       <template v-for=\"quote in quotes\" :key=\"quote.id\">\r\n         <QuoteCard :quote=\"quote\" />\r\n@@ -32,5 +32,5 @@\n   } catch (error) {\r\n     console.error(\"Gagal memuat data:\", error)\r\n   }\r\n })\r\n-</script>\n\\ No newline at end of file\n+</script>\r\n"
+                },
+                {
+                    "date": 1727683028890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-  <main class=\"min-h-screen bg-slate-600 grid place-items-center p-6\">\r\n+  <main class=\"min-h-screen bg-slate-500 grid place-items-center p-6\">\r\n     <!-- wrapper -->\r\n     <section v-if=\"quotes\" class=\"w-8/12 grid grid-cols-1 gap-6\">\r\n       <template v-for=\"quote in quotes\" :key=\"quote.id\">\r\n         <QuoteCard :quote=\"quote\" />\r\n"
+                },
+                {
+                    "date": 1727683160186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n   </main>\r\n </template>\r\n \r\n <script setup>\r\n-import { onMounted, ref } from 'vue';\r\n+import { onMounted, ref,updated } from 'vue';\r\n import QuoteCard from './components/QuoteCard.vue';\r\n \r\n // refs\r\n const quotes = ref()\r\n"
+                },
+                {
+                    "date": 1727683195087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-  <main class=\"min-h-screen bg-slate-500 grid place-items-center p-6\">\r\n+  <main class=\"min-h-screen bg-slate-700 grid place-items-center p-6\">\r\n     <!-- wrapper -->\r\n     <section v-if=\"quotes\" class=\"w-8/12 grid grid-cols-1 gap-6\">\r\n       <template v-for=\"quote in quotes\" :key=\"quote.id\">\r\n         <QuoteCard :quote=\"quote\" />\r\n@@ -14,9 +14,9 @@\n   </main>\r\n </template>\r\n \r\n <script setup>\r\n-import { onMounted, ref,updated } from 'vue';\r\n+import { onMounted, ref, updated } from 'vue';\r\n import QuoteCard from './components/QuoteCard.vue';\r\n \r\n // refs\r\n const quotes = ref()\r\n@@ -32,5 +32,9 @@\n   } catch (error) {\r\n     console.error(\"Gagal memuat data:\", error)\r\n   }\r\n })\r\n+\r\n+updated(() => {\r\n+  console.log('Data kutipan telah diperbarui:', quotes.value);\r\n+});\r\n </script>\r\n"
+                },
+                {
+                    "date": 1727683262053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n   </main>\r\n </template>\r\n \r\n <script setup>\r\n-import { onMounted, ref, updated } from 'vue';\r\n+import { onMounted, onUpdated, ref, updated } from 'vue';\r\n import QuoteCard from './components/QuoteCard.vue';\r\n \r\n // refs\r\n const quotes = ref()\r\n@@ -33,8 +33,8 @@\n     console.error(\"Gagal memuat data:\", error)\r\n   }\r\n })\r\n \r\n-updated(() => {\r\n+onUpdated(() => {\r\n   console.log('Data kutipan telah diperbarui:', quotes.value);\r\n });\r\n </script>\r\n"
+                },
+                {
+                    "date": 1727683269500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n   </main>\r\n </template>\r\n \r\n <script setup>\r\n-import { onMounted, onUpdated, ref, updated } from 'vue';\r\n+import { onMounted, onUpdated, ref } from 'vue';\r\n import QuoteCard from './components/QuoteCard.vue';\r\n \r\n // refs\r\n const quotes = ref()\r\n"
+                }
+            ],
+            "date": 1727682343091,
+            "name": "Commit-0",
+            "content": "<template>\r\n  <main class=\"min-h-screen bg-slate-100 grid place-items-center p-6\">\r\n    <!-- wrapper -->\r\n    <section v-if=\"pokemons\" class=\"w-8/12 grid grid-cols-5 gap-3\">\r\n      <template v-for=\"pokemon in pokemons\" :key=\"pokemon.url\">\r\n        <PokemonCard class=\"col-span-1\" :pokemon=\"pokemon\" />\r\n      </template>\r\n    </section>\r\n\r\n    <!-- loading state -->\r\n    <p v-else>\r\n      loading...\r\n    </p>\r\n  </main>\r\n</template>\r\n\r\n<script setup>\r\nimport { onMounted, ref } from 'vue';\r\nimport PokemonCard from './components/PokemonCard.vue';\r\n\r\n// refs\r\nconst pokemons = ref()\r\n\r\nonMounted(() => {\r\n\r\n  setTimeout(async () => {\r\n\r\n    const res = await fetch(\"https://pokeapi.co/api/v2/item\")\r\n\r\n    // parse data\r\n    const data = await res.json()\r\n\r\n    // updated state\r\n    pokemons.value = data.results\r\n  },)\r\n})\r\n\r\n</script>"
+        }
+    ]
+}
