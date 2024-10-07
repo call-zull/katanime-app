@@ -1,6 +1,6 @@
-# pokemon-app
+# Katanime-app
 
-This template should help get you started developing with Vue 3 in Vite.
+This web for trying VUE JS with API KATANIME https://github.com/ricko-v/katanime is quotes in anime
 
 ## Recommended IDE Setup
 
