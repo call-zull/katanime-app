@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/stores/bookmark.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1728133868218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1728133868218,
+            "name": "Commit-0",
+            "content": "import { defineStore } from \"pinia\";\r\nimport { ref, computed } from \"vue\";\r\n\r\nexport const useBookmarkStore = defineStore(\"bookmark-store\", () => {\r\n  const bookmarks = ref([]);\r\n\r\n  const addBookmark = (quoteId) => {\r\n    if (bookmarks.value.includes(quoteId)) {\r\n      bookmarks.value = bookmarks.value.filter((id) => id !== quoteId);\r\n    } else {\r\n      bookmarks.value.push(quoteId);\r\n    }\r\n  };\r\n\r\n  const isBookmarked = (quoteId) => bookmarks.value.includes(quoteId);\r\n\r\n  const getBookmarkCount = computed(() => bookmarks.value.length);\r\n\r\n  return { bookmarks, addBookmark, isBookmarked, getBookmarkCount };\r\n}, {\r\n  persist: {\r\n    storage: localStorage,\r\n  },\r\n});\r\n"
+        }
+    ]
+}

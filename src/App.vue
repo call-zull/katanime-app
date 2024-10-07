@@ -1,40 +1,39 @@
 <template>
   <main class="min-h-screen bg-slate-700 grid place-items-center p-6">
-    <!-- wrapper -->
-    <section v-if="quotes" class="w-8/12 grid grid-cols-1 gap-6">
+    <div class="absolute top-4 right-4 text-white">
+      <i class="fa-solid fa-bookmark text-3xl"></i>
+      <span class="grid place-items-center h-8 w-8 bg-red-600 rounded-full text-center text-slate-50 relative -top-12 -right-2">
+        {{ bookmarkStore.getBookmarkCount }}
+      </span>
+    </div>
+    
+    <section v-if="loading" class="text-white">Memuat...</section>
+    <section v-if="error" class="text-red-500">{{ error }}</section>
+    <section v-if="!loading && quotes.length > 0" class="w-8/12 grid grid-cols-1 gap-6">
       <template v-for="quote in quotes" :key="quote.id">
         <QuoteCard :quote="quote" />
       </template>
     </section>
-
-    <!-- loading state -->
-    <p v-else>
-      Memuat...
-    </p>
+    <p v-else-if="!loading && quotes.length === 0" class="text-white">Tidak ada kutipan yang ditemukan.</p>
   </main>
 </template>
 
 <script setup>
-import { onMounted, onUpdated, ref } from 'vue';
+import { onMounted } from 'vue';
 import QuoteCard from './components/QuoteCard.vue';
+import { useQuotesStore } from './stores/QuotesStore';
+import { useBookmarkStore } from './stores/bookmark';
+import feather from 'feather-icons';
 
-// refs
-const quotes = ref()
+const quotesStore = useQuotesStore();
+const bookmarkStore = useBookmarkStore();
 
 onMounted(async () => {
-  try {
-    const res = await fetch("https://katanime.vercel.app/api/getrandom")
-    const data = await res.json()
-
-    if (data.sukses) {
-      quotes.value = data.result
-    }
-  } catch (error) {
-    console.error("Gagal memuat data:", error)
+  feather.replace();
+  if (quotesStore.quotes.length === 0) {
+    await quotesStore.fetchQuotes();
   }
-})
-
-onUpdated(() => {
-  console.log('Data kutipan telah diperbarui:', quotes.value);
 });
+
+const { quotes, loading, error } = quotesStore;
 </script>

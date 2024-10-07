@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/stores/QuotesStore.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1728093690253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1728094313031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,32 +1,32 @@\n // stores/quotesStore.js\r\n-import { defineStore } from \"pinia\";\r\n+import { defineStore } from 'pinia';\r\n+import { ref } from 'vue';\r\n \r\n-export const useQuotesStore = defineStore(\"quotes\", {\r\n-  state: () => ({\r\n-    quotes: [],\r\n-    loading: false,\r\n-    error: null,\r\n-  }),\r\n-  actions: {\r\n-    async fetchQuotes() {\r\n-      this.loading = true;\r\n-      this.error = null;\r\n-      try {\r\n-        const res = await fetch(\r\n-          \"https://katanime.vercel.app/api/getbyanime?anime=naruto&page=1\"\r\n-        );\r\n-        const data = await res.json();\r\n+export const useQuotesStore = defineStore('quotes', () => {\r\n+  const quotes = ref([]);\r\n+  const loading = ref(false);\r\n+  const error = ref(null);\r\n \r\n-        if (data.sukses) {\r\n-          this.quotes = data.result;\r\n-        } else {\r\n-          throw new Error(\"Data tidak ditemukan\");\r\n-        }\r\n-      } catch (error) {\r\n-        this.error = error.message;\r\n-      } finally {\r\n-        this.loading = false;\r\n+  const fetchQuotes = async () => {\r\n+    loading.value = true;\r\n+    error.value = null;\r\n+\r\n+    try {\r\n+      const res = await fetch(\"https://katanime.vercel.app/api/getrandom\");\r\n+      const data = await res.json();\r\n+\r\n+      if (data.sukses) {\r\n+        quotes.value = data.result;\r\n+      } else {\r\n+        error.value = \"Data tidak ditemukan\";\r\n       }\r\n-    },\r\n-  },\r\n+    } catch (err) {\r\n+      console.error(\"Gagal memuat data:\", err);\r\n+      error.value = \"Gagal memuat data\";\r\n+    } finally {\r\n+      loading.value = false;\r\n+    }\r\n+  };\r\n+\r\n+  return { quotes, loading, error, fetchQuotes };\r\n });\r\n"
+                },
+                {
+                    "date": 1728094406533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n export const useQuotesStore = defineStore(\"quotes\", () => {\r\n   const quotes = ref([]);\r\n   const loading = ref(false);\r\n   const error = ref(null);\r\n+  console.log(\"Fetching quotes...\");\r\n \r\n   const fetchQuotes = async () => {\r\n     loading.value = true;\r\n     error.value = null;\r\n"
+                }
+            ],
+            "date": 1728093690253,
+            "name": "Commit-0",
+            "content": "// stores/quotesStore.js\r\nimport { defineStore } from 'pinia';\r\n\r\nexport const useQuotesStore = defineStore('quotes', {\r\n  state: () => ({\r\n    quotes: [],\r\n    loading: false,\r\n    error: null,\r\n  }),\r\n  actions: {\r\n    async fetchQuotes() {\r\n      this.loading = true;\r\n      this.error = null;\r\n      try {\r\n        const res = await fetch(\"https://katanime.vercel.app/api/getbyanime?anime=naruto&page=1\");\r\n        const data = await res.json();\r\n\r\n        if (data.sukses) {\r\n          this.quotes = data.result;\r\n        } else {\r\n          throw new Error(\"Data tidak ditemukan\");\r\n        }\r\n      } catch (error) {\r\n        this.error = error.message;\r\n      } finally {\r\n        this.loading = false;\r\n      }\r\n    },\r\n  },\r\n});\r\n"
+        }
+    ]
+}
